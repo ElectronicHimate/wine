@@ -505,6 +505,13 @@ NTSTATUS SYSCALL_API NtCreateSection( HANDLE *handle, ACCESS_MASK access, const 
     __ASM_SYSCALL_FUNC( __id_NtCreateSection );
 }
 
+NTSTATUS SYSCALL_API NtCreateSectionEx( HANDLE *handle, ACCESS_MASK access, const OBJECT_ATTRIBUTES *attr,
+                                      const LARGE_INTEGER *size, ULONG protect,
+                                      ULONG sec_flags, HANDLE file, MEM_EXTENDED_PARAMETER *parameters, ULONG count )
+{
+    __ASM_SYSCALL_FUNC( __id_NtCreateSectionEx );
+}
+
 NTSTATUS SYSCALL_API NtCreateSemaphore( HANDLE *handle, ACCESS_MASK access, const OBJECT_ATTRIBUTES *attr,
                                         LONG initial, LONG max )
 {
