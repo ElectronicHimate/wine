@@ -2245,6 +2245,17 @@ NTSTATUS WINAPI NtCreateSection( HANDLE *handle, ACCESS_MASK access, const OBJEC
     return ret;
 }
 
+/***********************************************************************
+ *             NtCreateSectionEx (NTDLL.@)
+ */
+NTSTATUS WINAPI NtCreateSectionEx( HANDLE *handle, ACCESS_MASK access, const OBJECT_ATTRIBUTES *attr,
+                                   const LARGE_INTEGER *size, ULONG protect, ULONG sec_flags,
+                                   HANDLE file, MEM_EXTENDED_PARAMETER *parameters, ULONG count )
+{
+    if (count) FIXME( "extended params not supported\n" );
+    return NtCreateSection( handle, access, attr, size, protect, sec_flags, file );
+}
+
 
 /***********************************************************************
  *             NtOpenSection (NTDLL.@)
